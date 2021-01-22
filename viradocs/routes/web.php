@@ -12,9 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', "App\Http\Controllers\HomeController@index")->name('home');
+
+Route::get('/admin', "App\Http\Controllers\AdminController@index")->name('admin');
+
+Route::get('/data', "App\Http\Controllers\DataController@index")->name('data');
+
+Route::resource('departments', "App\Http\Controllers\DepartmentController");
+Route::post('departments', "App\Http\Controllers\DepartmentController@store")->name('departments');
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/anasayfa','App@index');
